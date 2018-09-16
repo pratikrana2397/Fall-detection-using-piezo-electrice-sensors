@@ -14,7 +14,7 @@ port_number = input('Enter port number: ')
 ser = serial.Serial('/dev/ttyACM' + str(port_number))
 ser.flushInput()
 
-additional_mobile_numbers = [x.strip() for x in raw_input('Enter comma seperated mobile numbers: ').split(',')]
+additional_mobile_numbers = [x.strip() for x in str(input('Enter comma seperated mobile numbers: ')).split(',')]
 print ('Registered numbers: ', additional_mobile_numbers)
 
 while True:
