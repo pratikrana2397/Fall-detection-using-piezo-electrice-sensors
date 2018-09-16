@@ -8,10 +8,15 @@ password = "P7342B"
 to_mobile_number = "9555777987"
 message = "Help!"
 
-ser = serial.Serial('/dev/ttyACM1')
+additional_mobile_numbers = []
+
+port_number = input('Enter port number: ')
+ser = serial.Serial('/dev/ttyACM' + str(port_number))
 ser.flushInput()
 
-state = False;
+additional_mobile_numbers = [x.strip() for x in raw_input('Enter comma seperated mobile numbers: ').split(',')]
+print ('Registered numbers: ', additional_mobile_numbers)
+
 while True:
 	try:
 		time.sleep(0.02)
@@ -20,10 +25,12 @@ while True:
 		print(decoded_bytes)
 		if decoded_bytes == 1:
 			q = way2sms.sms(from_mobile_number, password)
-
+			
 			print (q.send(to_mobile_number,message))
-
+			for mob in additional_mobile_numbers:
+				q.send(mob, message)
 			q.logout()
 	except:
-		print(traceback.format_exc())
+		pass
+		#print(traceback.format_exc())
 
