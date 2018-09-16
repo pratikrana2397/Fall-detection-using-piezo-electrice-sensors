@@ -21,6 +21,7 @@ int buzzState = LOW;
 
 void trigger()
 {
+    
     Serial.println(1);
     for(int i = 0;i<9;i++){
       
@@ -69,14 +70,14 @@ void loop() {
   {  
     trigger();
   }
-  Serial.print(sensorReading0);
-  Serial.print(" ");
-  Serial.print(sensorReading1);
-  Serial.print(" ");
-  Serial.print(sensorReading2);
-  Serial.print(" ");
-  Serial.print(sensorReading3);
-  Serial.print(" ");
-  Serial.println(sensorReading4);
+//  Serial.print(sensorReading0);
+//  Serial.print(" ");
+//  Serial.print(sensorReading1);
+//  Serial.print(" ");
+//  Serial.print(sensorReading2);
+//  Serial.print(" ");
+//  Serial.print(sensorReading3);
+//  Serial.print(" ");
+//  Serial.println(sensorReading4);
   delay(100);  //   delay to avoid overloading the serial port buffer
 }
