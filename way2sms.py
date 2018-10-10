@@ -86,10 +86,11 @@ class sms:
        			    }
 
 		self.q=self.session.post(self.msg_url,data=self.payload)
-
+		print(self.q.status_code)
 		if self.q.status_code==200 and self.q.text == '0':
 			return True
 		else:
+			print ("here")
 			return False
 
 	def send_later(self, mobile_no, msg, date, time):				#Function for future SMS feature.
